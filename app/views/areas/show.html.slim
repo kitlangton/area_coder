@@ -1,0 +1,20 @@
+h1
+  = @number
+
+
+p =
+
+.container
+  form.pure-form.form
+    button.pure-button.pure-button-primary#d_clip_button.my_clip_button data-clipboard-target="fe_text" data-clipboard-text=("Default clipboard text from attribute") title=("Click me to copy to clipboard.") 
+      b Copy To Clipboard...
+    br
+    textarea.pure-input-1#fe_text cols="50" rows="3"  =@response
+  .form
+
+.container
+  h3.response
+    .text=simple_format(@response)
+
+
+  .center= button_to "Back", new_area_path, class: "button-secondary pure-button", method: :get

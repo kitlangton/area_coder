@@ -1,0 +1,7 @@
+.container
+  h1 Paste the phone number below
+
+  .form
+    = simple_form_for :area, url: areas_path, method: :post do |f|
+      = f.input :number, required: false, label: false
+      = f.submit "Submit Number", class: "pure-button pure-button-primary"
