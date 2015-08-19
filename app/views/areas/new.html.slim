@@ -5,3 +5,10 @@
     = simple_form_for :area, url: areas_path, method: :post do |f|
       = f.input :number, required: false, label: false
       = f.submit "Submit Number", class: "pure-button pure-button-primary"
+
+.latest
+  - if @numbers.count > 0
+    hr
+    h3 Last 5 Numbers
+    - @numbers.each do |number|
+      h1 = link_to number.number, area_path(number: number.number)
