@@ -37,6 +37,12 @@ class DecipherArea
 
   def region
     phone = Phoner::Phone.parse(@number)
+    @digits = "#{phone.area_code}#{phone.number}"
     phone.area_code.to_region
   end
+
+  def digits
+    @digits
+  end
+
 end

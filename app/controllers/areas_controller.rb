@@ -1,11 +1,14 @@
 class AreasController < ApplicationController
   def new
+    @numbers = PhoneNumber.order(updated_at: :desc).limit(5)
   end
 
   def create
     @number = params[:area][:number]
     begin
-      DecipherArea.new(number: @number).process
+      phone = DecipherArea.new(number: @number)
+      phone.process
+      PhoneNumber.find_or_create_by(number: phone.digits).touch
       redirect_to area_path(@number)
     rescue
       render :new

@@ -6,6 +6,14 @@
   @include outer-container
 }
 
+.latest {
+  display: block;
+  h3 {
+  }
+    margin: 30px;
+  text-align: center;
+}
+
 body {
   background-color: lightgrey;
 }
