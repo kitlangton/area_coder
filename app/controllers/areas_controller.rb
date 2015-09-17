@@ -1,6 +1,7 @@
 class AreasController < ApplicationController
   def new
     @numbers = PhoneNumber.order(updated_at: :desc).limit(5)
+    @gmail = SupportEmail.new.pending
   end
 
   def create

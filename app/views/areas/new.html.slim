@@ -1,5 +1,12 @@
 .container
   h1 Paste the phone number below
+  h2 = "#{@gmail.count} unread support emails"
+
+  - @gmail.each do |mail|
+    .message
+      .email = mail.email
+      .phone = mail.phone_number
+  br
 
   .form
     = simple_form_for :area, url: areas_path, method: :post do |f|
