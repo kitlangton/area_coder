@@ -7,7 +7,7 @@ class SupportEmail
     @gmail.inbox.emails(:unread, from: "donotreply@vzretailsupport.com").map do |mail|
       message = SupportMessage.new
       message.email = mail.subject.match(/\((.+)\)/)[1]
-      message.phone_number = mail.body.match(/phone: *(\d.+)username/)[1].scan(/\d/).join
+      message.phone_number = mail.body.match(/phone: *(\d.+?)username/)[1].scan(/\d/).join
       message.area = DecipherArea.new(number: message.phone_number).region
       message.uid = mail.subject
       message
