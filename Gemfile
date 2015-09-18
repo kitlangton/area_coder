@@ -22,6 +22,7 @@ gem 'carmen'
 gem 'zeroclipboard-rails'
 gem "pure-css-rails"
 gem "gmail"
+gem 'redcarpet'
 
 
 # Use ActiveModel has_secure_password

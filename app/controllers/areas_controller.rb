@@ -16,6 +16,13 @@ class AreasController < ApplicationController
     end
   end
 
+  def send_message
+    phone_number = params[:message][:phone_number]
+    message = DecipherArea.new(number: phone_number).process
+    SupportEmail.new.send(message,params[:message][:email], params[:message][:uid])
+    redirect_to root_url
+  end
+
   def show
     @number = params[:number]
     @response = DecipherArea.new(number: @number).process

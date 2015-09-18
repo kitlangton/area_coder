@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :areas, only: [:new, :create]
 
   get 'areas/:number', as: 'area', to: 'areas#show'
+  post 'message', as: 'send_message', to: 'areas#send_message'
   # post 'areas/information/', as: 'get_information', to: 'areas#get_information'
 
   # The priority is based upon order of creation: first created -> highest priority.

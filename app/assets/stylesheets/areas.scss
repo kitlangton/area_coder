@@ -90,3 +90,19 @@ textarea#fe_text {
   text-align: center;
 }
 
+
+.message {
+  margin-bottom: 10px;
+
+  span {
+    margin-right: 5px;
+  }
+  .email {
+    display: inline;
+    font-weight: bold;
+  }
+
+  .message {
+    display: inline;
+  }
+}

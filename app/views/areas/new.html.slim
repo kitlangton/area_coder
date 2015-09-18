@@ -3,10 +3,15 @@
   h2 = "#{@gmail.count} unread support emails"
 
   - @gmail.each do |mail|
-    .message
-      .email = mail.email
-      .phone = mail.phone_number
-  br
+    = simple_form_for :message, url: send_message_path, method: :post do |f|
+      .message
+        span.email = mail.email
+        = f.input :email, as: :hidden, input_html: { value: mail.email }
+        span.phone = mail.phone_number
+        span.email = mail.area
+        = f.input :phone_number, as: :hidden, input_html: { value: mail.phone_number }
+        = f.input :uid, as: :hidden, input_html: { value: mail.uid }
+        = f.submit "Send Email", class: "pure-button pure-button-primary"
 
   .form
     = simple_form_for :area, url: areas_path, method: :post do |f|
