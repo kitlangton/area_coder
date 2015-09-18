@@ -17,7 +17,7 @@ class SupportEmail
   def send(message, recipient, uid)
     markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, extensions = {})
     @gmail.deliver do
-      to recipient + ", joe.buchheri@coloredge.com, jeff.reardon@coloredge.com"
+      to recipient + ", joe.buccheri@coloredge.com, jeff.reardon@coloredge.com"
       subject "Verizon Card Creator Login Information"
       html_part do
         content_type 'text/html; charset=UTF-8'
