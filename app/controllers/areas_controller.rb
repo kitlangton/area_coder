@@ -20,6 +20,7 @@ class AreasController < ApplicationController
     phone_number = params[:message][:phone_number]
     message = DecipherArea.new(number: phone_number).process
     SupportEmail.new.send(message,params[:message][:email], params[:message][:uid])
+    PhoneNumber.find_or_create_by(number: phone_number).touch
     redirect_to root_url
   end
 
