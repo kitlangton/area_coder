@@ -16,6 +16,9 @@ class AreasController < ApplicationController
     end
   end
 
+  def create
+  end
+
   def send_message
     phone_number = params[:message][:phone_number]
     message = DecipherArea.new(number: phone_number).process

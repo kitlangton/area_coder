@@ -1,6 +1,6 @@
 class SupportEmail
   def initialize
-    @gmail = Gmail.connect('kit.langton@coloredge.com', 'NY100user')
+    @gmail = Gmail.connect(ENV['gmail_user'], ENV['gmail_pass'])
   end
 
   def pending
